@@ -1,6 +1,14 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "ui": "tui",
+  "globalEnv": [
+    "BETTER_AUTH_SECRET",
+    "BETTER_AUTH_URL",
+    "CORS_ORIGIN",
+    "GOOGLE_GENERATIVE_AI_API_KEY",
+    "DATABASE_URL",
+    "HUGGINGFACE_API_KEY"
+  ],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
