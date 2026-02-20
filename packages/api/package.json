@@ -1,0 +1,31 @@
+{
+  "name": "@learn-bot/api",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {},
+  "dependencies": {
+    "@ai-sdk/huggingface": "^1.0.32",
+    "@ai-sdk/openai": "^3.0.30",
+    "@huggingface/inference": "^4.13.12",
+    "@learn-bot/auth": "workspace:*",
+    "@learn-bot/db": "workspace:*",
+    "@learn-bot/env": "workspace:*",
+    "@trpc/client": "catalog:",
+    "@trpc/server": "catalog:",
+    "ai": "^6.0.94",
+    "dotenv": "catalog:",
+    "next": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@learn-bot/config": "workspace:*",
+    "typescript": "catalog:"
+  }
+}

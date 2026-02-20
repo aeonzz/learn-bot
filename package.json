@@ -1,0 +1,32 @@
+{
+  "name": "learn-bot",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "type": "module",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "check-types": "turbo check-types",
+    "dev:native": "turbo -F native dev",
+    "dev:web": "turbo -F web dev",
+    "db:push": "turbo -F @learn-bot/db db:push",
+    "db:studio": "turbo -F @learn-bot/db db:studio",
+    "db:generate": "turbo -F @learn-bot/db db:generate",
+    "db:migrate": "turbo -F @learn-bot/db db:migrate"
+  },
+  "dependencies": {
+    "@learn-bot/env": "workspace:*",
+    "dotenv": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@learn-bot/config": "workspace:*",
+    "@types/node": "^22.13.14",
+    "turbo": "^2.6.3",
+    "typescript": "catalog:"
+  },
+  "packageManager": "pnpm@10.17.1"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "@learn-bot/auth",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {},
+  "dependencies": {
+    "@learn-bot/db": "workspace:*",
+    "@learn-bot/env": "workspace:*",
+    "better-auth": "catalog:",
+    "dotenv": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@learn-bot/config": "workspace:*",
+    "typescript": "catalog:"
+  }
+}

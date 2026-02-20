@@ -1,0 +1,33 @@
+model Quiz {
+    id        String     @id @default(uuid())
+    lessonId  String
+    lesson    Lesson     @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+    title     String
+    questions Question[]
+    createdAt DateTime   @default(now())
+    updatedAt DateTime   @updatedAt
+
+    @@map("quiz")
+}
+
+model Question {
+    id         String   @id @default(uuid())
+    quizId     String
+    quiz       Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
+    text       String
+    orderIndex Int
+    options    Option[]
+    createdAt  DateTime @default(now())
+
+    @@map("question")
+}
+
+model Option {
+    id         String   @id @default(uuid())
+    questionId String
+    question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+    text       String
+    isCorrect  Boolean  @default(false)
+
+    @@map("option")
+}

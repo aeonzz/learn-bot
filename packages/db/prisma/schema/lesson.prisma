@@ -1,0 +1,27 @@
+model Lesson {
+    id           String        @id @default(uuid())
+    title        String
+    description  String?
+    slug         String        @unique
+    teacherId    String
+    teacher      User          @relation(fields: [teacherId], references: [id])
+    content      String?
+    documentUrl  String?
+    createdAt    DateTime      @default(now())
+    updatedAt    DateTime      @updatedAt
+    lessonChunks LessonChunk[]
+    quizzes      Quiz[]
+
+    @@map("lesson")
+}
+
+model LessonChunk {
+    id        String                      @id @default(uuid())
+    lessonId  String
+    lesson    Lesson                      @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+    content   String
+    embedding Unsupported("vector(384)")?
+    createdAt DateTime                    @default(now())
+
+    @@map("lesson_chunk")
+}
